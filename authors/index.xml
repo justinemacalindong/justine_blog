@@ -2,34 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors on Academia</title>
-    <link>https://gethugothemes.com/academia/examplesite/authors/</link>
+    <link>https://justinemacalindong.github.io/justine_blog/authors/</link>
     <description>Recent content in Authors on Academia</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;copy; {year}</copyright>
     <lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://gethugothemes.com/academia/examplesite/authors/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://justinemacalindong.github.io/justine_blog/authors/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>https://gethugothemes.com/academia/examplesite/authors/admin/</link>
+      <link>https://justinemacalindong.github.io/justine_blog/authors/admin/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gethugothemes.com/academia/examplesite/authors/admin/</guid>
-      <description>&lt;p&gt;Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../img/certifacates.jpg&#34; alt=&#34;reviews&#34;&gt;&lt;/p&gt;
-&lt;p&gt;It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum. The point of using Lorem Ipsum. distracted by the readable content of a page.&lt;/p&gt;
+      <guid>https://justinemacalindong.github.io/justine_blog/authors/admin/</guid>
+      <description>&lt;p&gt;Hello! My name is Justine Macalindong and I am currently a senior majoring in Integrative Biology with a minor in Informatics at the University of Illinois Urbana-Champaign. I am also an Undergraduate Researcher in the Harmon-Threatt Lab where I am working on my distinction project on changes in pollinator anti-predator behavior in areas of increased soil organic carbon.&lt;/p&gt;
+&lt;p&gt;Following graduation, I will be attending graduate school to obtain a master&amp;rsquo;s in bioinformatics. I hope to find a future career as a bioinformatician in either the biotechnology industry or government agencies.&lt;/p&gt;
+&lt;p&gt;Outside of academia, I like to play video games, play/write/listen to music, hang out with my friends, watch movies, and travel with my family.&lt;/p&gt;
+&lt;p&gt;Download my &lt;a href=&#34;https://justinemacalindong.github.io/justine_blog/justine_blog/uploads/resume.pdf&#34; target=&#34;_blank&#34;&gt;Currivulum Vitae&lt;/a&gt;!&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Robert Ford</title>
-      <link>https://gethugothemes.com/academia/examplesite/authors/robert-ford/</link>
+      <link>https://justinemacalindong.github.io/justine_blog/authors/robert-ford/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://gethugothemes.com/academia/examplesite/authors/robert-ford/</guid>
+      <guid>https://justinemacalindong.github.io/justine_blog/authors/robert-ford/</guid>
       <description></description>
     </item>
     

@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Academia</title>
-    <link>https://gethugothemes.com/academia/examplesite/</link>
+    <link>https://justinemacalindong.github.io/justine_blog/</link>
     <description>Recent content on Academia</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;copy; {year}</copyright>
     <lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://gethugothemes.com/academia/examplesite/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://justinemacalindong.github.io/justine_blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Recent &amp; Upcoming Talks</title>
-      <link>https://gethugothemes.com/academia/examplesite/talk/</link>
+      <link>https://justinemacalindong.github.io/justine_blog/talk/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
       
-      <guid>https://gethugothemes.com/academia/examplesite/talk/</guid>
+      <guid>https://justinemacalindong.github.io/justine_blog/talk/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Courses</title>
-      <link>https://gethugothemes.com/academia/examplesite/courses/</link>
+      <link>https://justinemacalindong.github.io/justine_blog/courses/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
       
-      <guid>https://gethugothemes.com/academia/examplesite/courses/</guid>
+      <guid>https://justinemacalindong.github.io/justine_blog/courses/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Publications</title>
-      <link>https://gethugothemes.com/academia/examplesite/publication/</link>
+      <link>https://justinemacalindong.github.io/justine_blog/publication/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gethugothemes.com/academia/examplesite/publication/</guid>
+      <guid>https://justinemacalindong.github.io/justine_blog/publication/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Posts</title>
-      <link>https://gethugothemes.com/academia/examplesite/post/</link>
+      <link>https://justinemacalindong.github.io/justine_blog/post/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gethugothemes.com/academia/examplesite/post/</guid>
+      <guid>https://justinemacalindong.github.io/justine_blog/post/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Slides</title>
-      <link>https://gethugothemes.com/academia/examplesite/slides/</link>
+      <link>https://justinemacalindong.github.io/justine_blog/slides/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gethugothemes.com/academia/examplesite/slides/</guid>
+      <guid>https://justinemacalindong.github.io/justine_blog/slides/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>https://gethugothemes.com/academia/examplesite/project/</link>
+      <link>https://justinemacalindong.github.io/justine_blog/project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://gethugothemes.com/academia/examplesite/project/</guid>
+      <guid>https://justinemacalindong.github.io/justine_blog/project/</guid>
       <description></description>
     </item>
     
