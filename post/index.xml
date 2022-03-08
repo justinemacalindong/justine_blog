@@ -22,7 +22,7 @@
 &lt;script src=&#34;https://justinemacalindong.github.io/justine_blog/post/2022-03-07-text/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;Hello! In this post, I will be working with a data set from the &lt;strong&gt;UKLungDeaths&lt;/strong&gt; data set that is built-in with R. The dataset I am using is &lt;em&gt;ldeaths&lt;/em&gt; which contains the number of monthly deaths from bronchitis, emphysema, and asthma of both men and women in the UK between the years of 1974-1979.&lt;/p&gt;
+&lt;p&gt;Hello! In this post, I will be working with a data set from the &lt;strong&gt;UKLungDeaths&lt;/strong&gt; data set that is built-in with R. The data set I am using is &lt;em&gt;ldeaths&lt;/em&gt; which is a time-series that contains the number of monthly deaths from bronchitis, emphysema, and asthma of both men and women in the UK between the years of 1974-1979.&lt;/p&gt;
 &lt;p&gt;ldeaths contains the number of deaths in the UK over 72 months.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;##       Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct  Nov  Dec
 ## 1974 3035 2552 2704 2554 2014 1655 1721 1524 1596 2074 2199 2512
@@ -41,7 +41,7 @@
 &lt;pre&gt;&lt;code&gt;## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Next, I will be plotting the number of deaths over time.
+&lt;p&gt;Next, I will be plotting the time-series, which displays the number of deaths due to lung disease over time in the UK.
 &lt;img src=&#34;staticunnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;From the graph, you can see that there is a peak in 1976 of the highest number of deaths due to lung disease. The highest number of deaths in this data set is:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;max(ldeaths)&lt;/code&gt;&lt;/pre&gt;
@@ -49,25 +49,159 @@
 &lt;p&gt;Not only did 1976 have the highest number of deaths, it also had the lowest number of deaths due to lung disease. The lowest number of deaths in this data set is:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;min(ldeaths)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 1300&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, I am calculating the total number of deaths due to lung disease in the UK between the years of 1974-1980. The total number of deaths is:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum(ldeaths)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 148077&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Next, I am converting&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;staticunnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 12 x 2
-##    month total
-##    &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
-##  1 Apr   13618
-##  2 Aug    8450
-##  3 Dec   14871
-##  4 Feb   17368
-##  5 Jan   17756
-##  6 Jul    9305
-##  7 Jun    9652
-##  8 Mar   16458
-##  9 May   10831
-## 10 Nov   11244
-## 11 Oct   10140
-## 12 Sep    8384&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;staticunnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Next, I am converting the ldeaths time-series into a data frame, so I can group the data by month.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.ldeaths &amp;lt;- data.frame(ldeaths, year = trunc(time(ldeaths)), 
+month = month.abb[cycle(ldeaths)])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here I am grouping the data by month and finding the total number of deaths in each month across all years. Then, I am graphing the monthly total number of deaths due to lung disease.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;monthly_deaths &amp;lt;- df.ldeaths %&amp;gt;%
+  mutate(month = fct_relevel(month, month.abb)) %&amp;gt;%
+  group_by(month) %&amp;gt;%
+  summarise(total = sum(ldeaths))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(monthly_deaths, aes(x=month, y= total, group = 1)) +
+  geom_point() +
+  geom_line() +
+  labs(title = &amp;quot;Total Number of Deaths due to Lung Disease by Month&amp;quot;,
+       x = &amp;quot;Month&amp;quot;,
+       y = &amp;quot;Total Number of Deaths&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;staticunnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;
+According to this graph, the total number of deaths due to lung disease is highest in January and decreases from January - September, then begins to increase between September - December. This is inline to the trend that is observed in the first graph where you see a decline following a peak, then an incline toward the end of each year.&lt;/p&gt;
+&lt;p&gt;Very interesting stuff!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Effect of Vitamin C on Tooth Growth in Guinea Pigs</title>
+      <link>https://justinemacalindong.github.io/justine_blog/post/2022-03-07-the-effect-of-vitamin-c-on-tooth-growth-in-guinea-pigs/</link>
+      <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://justinemacalindong.github.io/justine_blog/post/2022-03-07-the-effect-of-vitamin-c-on-tooth-growth-in-guinea-pigs/</guid>
+      <description>
+&lt;script src=&#34;https://justinemacalindong.github.io/justine_blog/post/2022-03-07-the-effect-of-vitamin-c-on-tooth-growth-in-guinea-pigs/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Hi! In this post, I will be working with a data set from the &lt;strong&gt;ToothGrowth&lt;/strong&gt; data set that is built-in with R. The data set is comes from an experiment in which 60 guinea pigs’s length of odontoblasts were measured. Each animal received one of three dose levels of vitamin C (0.5, 1, and 2 mg/day) by either orange juice or ascorbic acid.&lt;/p&gt;
+&lt;p&gt;ToothGrowth is a data frame consisting of 60 observations and 3 variables.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;len&lt;/code&gt; Tooth length&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;supp factor&lt;/code&gt; Supplement type (VC or OJ)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dose&lt;/code&gt; Dose in milligrams/day&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(ToothGrowth)
+ToothGrowth&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     len supp dose
+## 1   4.2   VC  0.5
+## 2  11.5   VC  0.5
+## 3   7.3   VC  0.5
+## 4   5.8   VC  0.5
+## 5   6.4   VC  0.5
+## 6  10.0   VC  0.5
+## 7  11.2   VC  0.5
+## 8  11.2   VC  0.5
+## 9   5.2   VC  0.5
+## 10  7.0   VC  0.5
+## 11 16.5   VC  1.0
+## 12 16.5   VC  1.0
+## 13 15.2   VC  1.0
+## 14 17.3   VC  1.0
+## 15 22.5   VC  1.0
+## 16 17.3   VC  1.0
+## 17 13.6   VC  1.0
+## 18 14.5   VC  1.0
+## 19 18.8   VC  1.0
+## 20 15.5   VC  1.0
+## 21 23.6   VC  2.0
+## 22 18.5   VC  2.0
+## 23 33.9   VC  2.0
+## 24 25.5   VC  2.0
+## 25 26.4   VC  2.0
+## 26 32.5   VC  2.0
+## 27 26.7   VC  2.0
+## 28 21.5   VC  2.0
+## 29 23.3   VC  2.0
+## 30 29.5   VC  2.0
+## 31 15.2   OJ  0.5
+## 32 21.5   OJ  0.5
+## 33 17.6   OJ  0.5
+## 34  9.7   OJ  0.5
+## 35 14.5   OJ  0.5
+## 36 10.0   OJ  0.5
+## 37  8.2   OJ  0.5
+## 38  9.4   OJ  0.5
+## 39 16.5   OJ  0.5
+## 40  9.7   OJ  0.5
+## 41 19.7   OJ  1.0
+## 42 23.3   OJ  1.0
+## 43 23.6   OJ  1.0
+## 44 26.4   OJ  1.0
+## 45 20.0   OJ  1.0
+## 46 25.2   OJ  1.0
+## 47 25.8   OJ  1.0
+## 48 21.2   OJ  1.0
+## 49 14.5   OJ  1.0
+## 50 27.3   OJ  1.0
+## 51 25.5   OJ  2.0
+## 52 26.4   OJ  2.0
+## 53 22.4   OJ  2.0
+## 54 24.5   OJ  2.0
+## 55 24.8   OJ  2.0
+## 56 30.9   OJ  2.0
+## 57 26.4   OJ  2.0
+## 58 27.3   OJ  2.0
+## 59 29.4   OJ  2.0
+## 60 23.0   OJ  2.0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;First, I am loading the tidyverse package to analyze the data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## v ggplot2 3.3.5     v purrr   0.3.4
+## v tibble  3.1.6     v dplyr   1.0.7
+## v tidyr   1.1.3     v stringr 1.4.0
+## v readr   2.1.1     v forcats 0.5.1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, I am grouping the data by the supplement type used and finding the mean length of the measured odonotoblasts of each supplement type.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.supp &amp;lt;- ToothGrowth %&amp;gt;%
+  group_by(supp) %&amp;gt;%
+  summarise(avg = mean(len))
+df.supp&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 2
+##   supp    avg
+##   &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 OJ     20.7
+## 2 VC     17.0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;According to this, guinea pigs that were given the orange juice supplements had on average longer odontoblasts.&lt;/p&gt;
+&lt;p&gt;Now, I am grouping the data by the dosage level given and finding the mean length of the measured odonotoblasts of each dosage level.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.dose &amp;lt;- ToothGrowth %&amp;gt;%
+  group_by(dose) %&amp;gt;%
+  summarise(avg = mean(len))
+df.dose&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 2
+##    dose   avg
+##   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1   0.5  10.6
+## 2   1    19.7
+## 3   2    26.1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Guinea pigs that were given 2.0 mg/day of vitamin C had the longest odontoblasts on average. This shows guinea pigs that were given higher dosage treatment had longer ondontoblasts.&lt;/p&gt;
+&lt;p&gt;Finally, I am grouping together the dosage and supplement type and finding the average length of the guinea pig odontoblasts by treatment of each supplement type and dosage level.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.sd &amp;lt;- ToothGrowth %&amp;gt;%
+  group_by(supp, dose) %&amp;gt;%
+  summarise(avg = mean(len))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `summarise()` has grouped output by &amp;#39;supp&amp;#39;. You can override using the `.groups` argument.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.sd&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 3
+## # Groups:   supp [2]
+##   supp   dose   avg
+##   &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 OJ      0.5 13.2 
+## 2 OJ      1   22.7 
+## 3 OJ      2   26.1 
+## 4 VC      0.5  7.98
+## 5 VC      1   16.8 
+## 6 VC      2   26.1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Guinea pigs that were given 2.0 mg/day of ascorbic acid had on average the longest measured odontoblasts (26.14). Therefore, according to this data, while attempting to maximize guinea pig odontoblast length, you should give them 2.0 mg/day of ascorbic acid.&lt;/p&gt;
 </description>
     </item>
     
