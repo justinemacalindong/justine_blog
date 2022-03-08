@@ -591,7 +591,7 @@ df.dose</code></pre>
 ## 2   1    19.7
 ## 3   2    26.1</code></pre>
 <p>Guinea pigs that were given 2.0 mg/day of vitamin C had the longest odontoblasts on average. This shows guinea pigs that were given higher dosage treatment had longer ondontoblasts.</p>
-<p>Finally, I am grouping together the dosage and supplement type and finding the average length of the guinea pig odontoblasts by treatment of each supplement type and dosage level.</p>
+<p>Finally, I am grouping together the dosage and supplement type and finding the average length of the guinea pig odontoblasts by treatment of each supplement type by dosage level.</p>
 <pre class="r"><code>df.sd &lt;- ToothGrowth %&gt;%
   group_by(supp, dose) %&gt;%
   summarise(avg = mean(len))</code></pre>
